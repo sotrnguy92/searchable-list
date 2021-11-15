@@ -1,0 +1,7 @@
+.student-paper{
+    overflow-y: scroll;
+}
+
+.student-paper::-webkit-scrollbar {
+    width: 0;
+}
