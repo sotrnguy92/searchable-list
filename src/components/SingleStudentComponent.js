@@ -4,26 +4,32 @@ import Typography from '@mui/material/Typography';
 import './SingleStudentComponent.css';
 
 
-export const SingleStudentComponent = () => {
+export const SingleStudentComponent = ({student}) => {
+    let gradeSum =0;
+    student.grades.forEach(grade => gradeSum += parseInt(grade))
+    let average = gradeSum/student.grades.length;
+
     return (
 
         <Grid container item   sx={{borderBottom:'1px solid #E8E8E8', m:'auto'}} >
-            <Grid Item  >
-                <img className="avatar-img" src={'https://storage.googleapis.com/hatchways-app.appspot.com/assessments/data/frontend/images/voluptasdictablanditiis.jpg'}/>
+            <Grid item  >
+                <img className={'avatar-img'} src={student.pic} alt={`${student.firstName}-avatar`}/>
             </Grid>
                 <Grid item sx={{display: 'flex', alignItems: 'flex-start', flexDirection: 'column', ml:2}}>
-                    <Typography>name</Typography>
-                    <Typography  variant="subtitle1" component="div">
-                        Standard license
+                    <Typography>
+                        <b> {student.firstName} {student.lastName}</b>
                     </Typography>
                     <Typography  variant="subtitle1" component="div">
-                        Name
+                        Email: {student.email}
                     </Typography>
                     <Typography  variant="subtitle1" component="div">
-                        Name
+                        Company: {student.company}
                     </Typography>
                     <Typography  variant="subtitle1" component="div">
-                        Name
+                        Skill: {student.skill}
+                    </Typography>
+                    <Typography  variant="subtitle1" component="div">
+                        Average: {average}%
                     </Typography>
                 </Grid>
         </Grid>
