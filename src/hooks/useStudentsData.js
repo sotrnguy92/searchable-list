@@ -10,7 +10,6 @@ export const useStudentData = () =>{
             const res = await axios.get(url);
             const data = res.data.students;
             setStudentData(data)
-            console.log(data)
         }
         studentData();
     }, [url])

@@ -5,8 +5,10 @@ import './SingleStudentComponent.css';
 import RemoveRoundedIcon from '@mui/icons-material/RemoveRounded';
 import AddRoundedIcon from '@mui/icons-material/AddRounded';
 import {StudentGradesComponent} from './StudentGradesComponent'
+import TextField from "@mui/material/TextField";
+import {TagsComponent} from './TagsComponent';
 
-export const SingleStudentComponent = ({student}) => {
+export const SingleStudentComponent = ({student, handleAddTag}) => {
     let gradeSum =0;
     student.grades.forEach(grade => gradeSum += parseInt(grade))
     let average = gradeSum/student.grades.length;
@@ -36,8 +38,9 @@ export const SingleStudentComponent = ({student}) => {
                 <Typography className={'student-details'}  component="div">
                     Average: {average}%
                 </Typography>
-                {seeDetails && <StudentGradesComponent  grades={student.grades}/>}
-
+                {seeDetails && <StudentGradesComponent  grades={student.grades} name={student.firstName}/>}
+                {student.tags && <TagsComponent tags={student.tags} name ={student.firstName} />}
+                <TextField   id={student.id} variant="standard" placeholder="Add Tag" sx={{width:'10rem', ml:2}} student_id={student.id} onKeyDown={handleAddTag} />
             </Grid>
             <Grid item  sx={{ position:'absolute', right:20}} >
                 <IconButton onClick={()=>setSeeDetails(!seeDetails)} >

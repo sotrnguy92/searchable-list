@@ -3,7 +3,7 @@ import {Grid} from "@mui/material";
 import Typography from "@mui/material/Typography";
 
 
-export const StudentGradesComponent = ({grades}) => {
+export const StudentGradesComponent = ({grades, name}) => {
 
     return (
         <Grid container item sx={{mt:2,display: 'flex', alignItems: 'flex-start', flexDirection: 'column'}}>
@@ -12,7 +12,7 @@ export const StudentGradesComponent = ({grades}) => {
             </Typography>
             {grades.map((grade, index) =>{
                 return (
-                    <Typography className={'student-details'}  component="div">
+                    <Typography key={name+'-test-'+index} className={'student-details'}  component="div">
                         Test {index+1}<b>:</b> {grade}
                     </Typography>
                 )
