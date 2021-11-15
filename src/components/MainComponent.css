@@ -1,7 +1,15 @@
 .student-paper{
     overflow-y: scroll;
+    border-radius: 10px !important;
 }
 
 .student-paper::-webkit-scrollbar {
     width: 0;
+}
+
+.MuiTextField-root {
+    font-family: 'Raleway', sans-serif !important;
+    width: 98%;
+    margin-top: 1rem !important;
+    margin-bottom: 1rem !important;
 }
