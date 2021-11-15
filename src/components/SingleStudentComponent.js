@@ -11,26 +11,29 @@ export const SingleStudentComponent = ({student}) => {
 
     return (
 
-        <Grid container item   sx={{borderBottom:'1px solid #E8E8E8', m:'auto'}} >
-            <Grid item  >
+        <Grid container item   sx={{borderBottom:'1px solid #E8E8E8'}} >
+            <Grid item  sx={{ml:2}}  >
                 <img className={'avatar-img'} src={student.pic} alt={`${student.firstName}-avatar`}/>
             </Grid>
-                <Grid item sx={{display: 'flex', alignItems: 'flex-start', flexDirection: 'column', ml:2}}>
-                    <Typography>
-                        <b> {student.firstName} {student.lastName}</b>
+                <Grid item  sx={{display: 'flex', alignItems: 'flex-start', flexDirection: 'column', ml:4, mb:1}}>
+                    <Typography variant={'h4'} sx={{mb:0}}>
+                        <b className={'student-name'}> {student.firstName.toUpperCase()} {student.lastName.toUpperCase()}</b>
                     </Typography>
-                    <Typography  variant="subtitle1" component="div">
-                        Email: {student.email}
-                    </Typography>
-                    <Typography  variant="subtitle1" component="div">
-                        Company: {student.company}
-                    </Typography>
-                    <Typography  variant="subtitle1" component="div">
-                        Skill: {student.skill}
-                    </Typography>
-                    <Typography  variant="subtitle1" component="div">
-                        Average: {average}%
-                    </Typography>
+
+                        <Typography className={'student-details'}  component="div">
+                            Email: {student.email}
+                        </Typography>
+                        <Typography className={'student-details'}  component="div">
+                            Company: {student.company}
+                        </Typography>
+                        <Typography className={'student-details'}  component="div">
+                            Skill: {student.skill}
+                        </Typography>
+                        <Typography className={'student-details'}  component="div">
+                            Average: {average}%
+                        </Typography>
+
+
                 </Grid>
         </Grid>
     )
