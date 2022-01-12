@@ -9,7 +9,6 @@ export const StudentGroupContainer = ({studentData, handleAddTag}) => {
             {studentData.map(student =>{
                 return <SingleStudentComponent key={student.id} student={student} handleAddTag={handleAddTag} />
             })}
-
         </Grid>
     )
 }

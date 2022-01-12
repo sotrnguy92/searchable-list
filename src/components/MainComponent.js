@@ -32,23 +32,28 @@ export const MainComponent = () => {
     }
 
     const filterStudents = (name, tag) => {
-        let filteredArr = studentData;
 
-        if(name.length>0){
-            filteredArr = filteredArr.filter(student => (student.firstName + ' ' + student.lastName).toLowerCase().indexOf(name.toLowerCase()) !== -1)
+        const updateFilter = () => {
+            let filteredArr = studentData;
 
-        }
-        if(tag.length>0){
-            filteredArr = filteredArr.filter(student => {
-                if(student.tags){
-                    if( (student.tags.join(' ')).toLowerCase().indexOf(tag.toLowerCase()) !== -1){
-                        return true
+            if(name.length>0){
+                filteredArr = filteredArr.filter(student => (student.firstName + ' ' + student.lastName).toLowerCase().indexOf(name.toLowerCase()) !== -1)
+
+            }
+            if(tag.length>0){
+                filteredArr = filteredArr.filter(student => {
+                    if(student.tags){
+                        if( (student.tags.join(' ')).toLowerCase().indexOf(tag.toLowerCase()) !== -1){
+                            return true
+                        }
                     }
-                }
-                return false
-            })
+                    return false
+                })
+            }
+            return filteredArr;
         }
-        setSearchArr(filteredArr)
+
+        setSearchArr(updateFilter())
 
     }
 
