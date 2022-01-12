@@ -2,6 +2,9 @@
   "homepage": "http://sotrnguy92.github.io/student-profile-7736",
   "name": "hatchways-assessment",
   "version": "0.1.0",
+  "engine": {
+    "node": "14.15.3"
+  },
   "dependencies": {
     "@emotion/react": "^11.6.0",
     "@emotion/styled": "^11.6.0",
